@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <import type="android.text.TextUtils"/>
+        <import type="android.view.View"/>
+        <variable name="schoolDetailItem" type="com.schools.nycschools.model.SchoolDetailModel" />
+       <variable name="clickListener" type="com.schools.nycschools.ui.adapter.ISchoolRowClickListener"/>
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.SchoolDetailActivity"
+    android:background="@color/black">
+
+    <TextView android:id="@+id/schoolNameTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:text="@{TextUtils.isEmpty(schoolDetailItem.school_name)?``:schoolDetailItem.school_name}"
+        android:gravity="center_horizontal"
+        />
+
+    <TextView android:id="@+id/satTestTaker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/schoolNameTitle"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:text="@{TextUtils.isEmpty(schoolDetailItem.num_of_sat_test_takers)? @string/school_detail_num_of_sat_test_takers(0):@string/school_detail_num_of_sat_test_takers(schoolDetailItem.num_of_sat_test_takers)}"
+        />
+
+    <TextView android:id="@+id/satReadingAvgScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/satTestTaker"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:text="@{TextUtils.isEmpty(schoolDetailItem.sat_critical_reading_avg_score)?@string/school_detail_sat_critical_reading_avg_score(0): @string/school_detail_sat_critical_reading_avg_score(schoolDetailItem.sat_critical_reading_avg_score)}"
+        />
+
+    <TextView android:id="@+id/satmathAvgScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/satReadingAvgScore"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:text="@{TextUtils.isEmpty(schoolDetailItem.sat_math_avg_score)?@string/school_detail_sat_math_avg_score(0): @string/school_detail_sat_math_avg_score(schoolDetailItem.sat_math_avg_score)}"
+
+        />
+
+    <TextView android:id="@+id/satwritinAvgScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/satmathAvgScore"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:text="@{TextUtils.isEmpty(schoolDetailItem.sat_writing_avg_score)?@string/school_detail_sat_writing_avg_score(0):@string/school_detail_sat_writing_avg_score(schoolDetailItem.sat_writing_avg_score)}"
+        />
+
+    <TextView android:id="@+id/noResulttv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/school_detail_error_no_result"
+        android:layout_margin="50dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:visibility="gone"
+        android:gravity="center_horizontal"
+        />
+
+    <!-- https://github.com/ybq/Android-SpinKit -->
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/progressBar_cyclic"
+        style="@style/SpinKitView.Large.Circle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:SpinKit_Color="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

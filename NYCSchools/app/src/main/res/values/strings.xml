@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">NYC Schools</string>
+    <string name="school_list_title">List of NYC Schools</string>
+    <string name="server_error">There was an error communicating with the server. Please try again later.</string>
+    <string name="school_detail_error_no_result">No result found for this school</string>
+    <string name="school_list_error_no_internet">No Internet connectivity found</string>
+    <string name="school_detail_num_of_sat_test_takers">Sat Test Takers: %1$s</string>
+    <string name="school_detail_sat_critical_reading_avg_score">Sat Critical Reading Avg Score : %1$s</string>
+    <string name="school_detail_sat_math_avg_score">Sat Math Avg Score: %1$s</string>
+    <string name="school_detail_sat_writing_avg_score">Sat Writing Avg Score: %1$s</string>
+</resources>
